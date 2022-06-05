@@ -16,7 +16,7 @@ Install all the packages required in your terminal
 
 
 ```
->>> pip/pip3 install -r requirement
+>>> pip/pip3 install -r requirements.txt
 ```
 
 
