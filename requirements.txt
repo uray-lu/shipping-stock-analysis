@@ -1,1 +1,6 @@
-numpypandasstatsmodelsmatplotlibarchpandas-datareader
+numpy
+pandas
+statsmodels
+matplotlib
+arch
+pandas-datareader
