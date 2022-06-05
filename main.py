@@ -58,11 +58,11 @@ ADF_test(stocks_diff)
 
 # Ljun-box test for stocks raw data
 
-stocks_lb_test = Ljung_box_test(stocks)
+Ljung_box_test(stocks)
 
 # Ljun-box test for stocks Diff
 
-stocks_returns_lb_test = Ljung_box_test(stocks_diff)
+Ljung_box_test(stocks_diff)
 
 
 
@@ -73,7 +73,7 @@ train_data = stocks_diff[:-test_obs]
 test_data = stocks_diff[-test_obs:]
 
 # Model construction
-#%%
+
 container = ModelConstruct(train_data, 'container')
 bulk = ModelConstruct(train_data, 'bulk')
 all_stocks = ModelConstruct(train_data, 'all')
