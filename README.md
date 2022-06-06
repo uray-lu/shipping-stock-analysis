@@ -1,5 +1,6 @@
 # Shipping-Stock-Analysis
-#This is NCCU Department of Economics Time series class final project
+
+This is NCCU Department of Economics Time series class final project
 
 
 
@@ -29,6 +30,8 @@ After all the package installed, Just exicute #main.py in the terminal, then get
 >>> python main.py
 ```
 
-Your All figures will all be stored in folder name 'Plot' by categories
-Your Raw data will collected by Yahoo API and stored in folder name 'Data'
-Your Model AIC will be stored in folder 'Model'>> 'Model record'
+Your All figures will all be stored in folder name 'Plot' by categories.
+
+Your Raw data will collected by Yahoo API and stored in folder name 'Data'.
+
+Your Model AIC will be stored in folder 'Model'>> 'Model record'.
