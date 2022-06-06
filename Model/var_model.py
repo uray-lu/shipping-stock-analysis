@@ -18,15 +18,22 @@ class ModelConstruct():
         
         self.data = data
         self.stockType = stockType
-    
-    def GridsearchforP(self):
         
         if self.stockType =='container':
+            
             self.stock_lists = ['2609.TW Diff', '2603.TW Diff', '2615.TW Diff']
+            
         elif self.stockType =='bulk':
+            
             self.stock_lists = ['5608.TW Diff', '2605.TW Diff','2606.TW Diff', '2637.TW Diff' ]
+            
         elif self.stockType  =='all':
+            
             self.stock_lists = ['2609.TW Diff', '2603.TW Diff', '2615.TW Diff', '5608.TW Diff', '2605.TW Diff','2606.TW Diff', '2637.TW Diff' ]
+        
+    def GridsearchforP(self):
+        
+        
                     
         print('-'*25 + 'Grid Search of Order P for' + ' ' + self.stockType +' '+'Stocks Model'+ '-'*25)
                     
@@ -57,37 +64,43 @@ class ModelConstruct():
     
     def Forecast(self, Order, Origidata,Testdata):
         lagged_Values = self.data[self.stock_lists].values[-Order:]
-        pred = self.Model(Order).forecast(y=lagged_Values, steps= len(Testdata)) 
+        model = self.model.fit(Order)
+        pred = model.forecast(y=lagged_Values, steps= len(Testdata)) 
         idx = Testdata.index
         
         df_forecast = pd.DataFrame(data=pred, 
                                    index=idx,
-                                   columns= (self.stock_lists[k]+' 1d' for k in range(len(self.stock_lists))))
+                                   columns= (self.stock_lists))
         
         
         
-        for i in range(len(self.stock_lists)):
+        for item in self.stock_lists:
             
-            df_forecast[Origidata.columns[i] + 'Forecast'] = np.r_[Origidata[Origidata.columns[i]][-len(Testdata)-1],
-                                                                  df_forecast[df_forecast.columns[i]]].cumsum()[1:]
+            
+            df_forecast[item[:7] + 'Forecast'] = np.r_[Origidata[item[:7]][-len(Testdata)-1], df_forecast[item]].cumsum()[1:]
          
         
         
             test_original = Origidata[-len(Testdata):]
             
             plt.figure()
-            test_original[test_original.columns[i]].plot(figsize=(12,5),legend=True)
-            df_forecast[Origidata.columns[i] + 'Forecast'].plot(legend=True)
-            plt.title(self.stockType +' model ' + Origidata.columns[i] + ' Forecast')
+            test_original[item[:7]].plot(figsize=(12,5),legend=True)
+            df_forecast[item[:7] + 'Forecast'].plot(legend=True)
+            plt.title(self.stockType +' model ' + item[:7] + ' Forecast')
             
             if self.stockType == 'container':
+                
                 path = 'Container'
+                
             elif self.stockType == 'bulk':
+                
                 path = 'Bulk'
+                
             elif self.stockType == 'all':
+                
                 path = 'All'
                 
-            plt.savefig('Plot/Forecast/' + path + '/'+ self.stockType +' ' + Origidata.columns[i] + ' Forecast.png')
+            plt.savefig('Plot/Forecast/' + path + '/'+ self.stockType +' ' + item[:7] + ' Forecast.png')
             
         print('Model Forecast has been Done !!')  
             
