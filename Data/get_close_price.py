@@ -25,8 +25,8 @@ class GetStockData():
         
         return data    
     
-    def StoreData(self, path):
+    def StoreData(self):
         store_data = self.MakeOutPut()
-        store_data.to_csv(path, index = False)
+        store_data.to_csv('Data/Close_price_data.csv', index = False)
         
         print('Data stored Finished!!')

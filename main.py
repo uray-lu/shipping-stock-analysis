@@ -21,12 +21,14 @@ from Model.var_model import ModelConstruct
 
 stock_lists = ['2609.TW', '2603.TW', '2615.TW', '5608.TW', '2605.TW','2606.TW', '2637.TW' ]
 stocks_data = GetStockData('2021-01-01', '2022-01-01', stock_lists)
+stocks_data.StoreData()
 stocks = stocks_data.MakeOutPut()
 
 # first order difference as first difference
 
 stocks_diff = stocks.diff().dropna()
 stocks_diff = stocks_diff.rename(columns = {'2609.TW':'2609.TW Diff', '2603.TW':'2603.TW Diff', '2615.TW':'2615.TW Diff', '5608.TW':'5608.TW Diff', '2605.TW':'2605.TW Diff','2606.TW':'2606.TW Diff', '2637.TW':'2637.TW Diff' })
+
 
 
 # Plot Original Price
