@@ -10,7 +10,7 @@ Created on Sat Jun  4 15:28:31 2022
 #Require packages 
 
 from Data.get_close_price import GetStockData
-from Preprocess.preprocess import MakePlot, ACF, PACF, ADF_test, Ljung_box_test 
+from src.stat_test import MakePlot, ACF, PACF, ADF_test, Ljung_box_test 
 from Model.var_model import ModelConstruct
 
 
@@ -35,18 +35,18 @@ stocks_diff = stocks_diff.rename(columns = {'2609.TW':'2609.TW Diff', '2603.TW':
 
 for i in stock_lists:
     
-    MakePlot(stocks, i, 0)
-    ACF(stocks, i, 0)
-    PACF(stocks, i, 0)
+    MakePlot(stocks, i, 'Raw')
+    ACF(stocks, i, 'Raw')
+    PACF(stocks, i, 'Raw')
 
 
 # Plot first Diff Price
 
 for i in stocks_diff.columns:
     
-    MakePlot(stocks_diff, i, 1)
-    ACF(stocks_diff, i, 1)
-    PACF(stocks_diff, i, 1)
+    MakePlot(stocks_diff, i, 'Diff')
+    ACF(stocks_diff, i, 'Diff')
+    PACF(stocks_diff, i, 'Diff')
 
 
 #ADF test for stocks raw data
