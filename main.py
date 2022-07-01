@@ -14,7 +14,7 @@ from src.stat_test import MakePlot, ACF, PACF, ADF_test, Ljung_box_test
 from Model.var_model import ModelConstruct
 
 
-#%%
+
 
 
 # Get Close Price
