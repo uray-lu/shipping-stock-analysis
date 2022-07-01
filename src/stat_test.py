@@ -8,10 +8,6 @@ Created on Sun Jun  5 17:15:00 2022
 
         
 
-
-
-
-
 import pandas as pd
 from matplotlib import pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
@@ -24,9 +20,9 @@ from statsmodels.stats.diagnostic import acorr_ljungbox
 ## Plot data        
 def MakePlot(data, stock, Type):
     
-    if Type == 0:
+    if Type == 'Raw':
         path = 'Raw' 
-    elif Type == 1:
+    elif Type == 'Diff':
         path = 'Diff'
     
     plt.figure(figsize=(10,4))
@@ -36,46 +32,46 @@ def MakePlot(data, stock, Type):
     plt.title(stock, fontsize=20)
     plt.savefig('Plot/Price/'  + path + '/'+stock+'.png')
     
-    if Type == 0:
+    if Type == 'Raw':
         print('-'*25+'Plot of ' + stock + ' original Price has been stored'+'-'*25)
-    elif Type ==1:
-        print('-'*25+'Plot of ' + stock + ' has been stored'+'-'*25)
+    elif Type =='Diff':
+        print('-'*25+'Plot of ' + stock + ' first diff has been stored'+'-'*25)
     
 
 ##ACf & PACF
 
 def ACF(data, stock, Type):
     
-    if Type == 0:
+    if Type == 'Raw':
         path = 'Raw' 
-    elif Type == 1:
+    elif Type == 'Diff':
         path = 'Diff'
         
     plot_acf(data[stock], lags=20, title= stock+'_ACF')
     plt.savefig('Plot/ACF&PACF/' + path + '/'+stock+'_ACF.png')
     
-    if Type == 0:
+    if Type == 'Raw':
         print('-'*25+'Plot of ' + stock + ' original Price ACF has been stored'+'-'*25)
-    elif Type == 1:
-        print('-'*25+'Plot of ' + stock+ ' ACF has been stored'+'-'*25)
+    elif Type == 'Diff':
+        print('-'*25+'Plot of ' + stock+ ' first diff ACF has been stored'+'-'*25)
     
     
     
     
 def PACF(data, stock, Type):
     
-    if Type == 0:
+    if Type == 'Raw':
         path = 'Raw' 
-    elif Type == 1:
+    elif Type == 'Diff':
         path = 'Diff'
         
     plot_pacf(data[stock], lags=20, title= stock+'_PACF')
     plt.savefig('Plot/ACF&PACF/' + path + '/'+stock+'_PACF.png')
 
-    if Type == 0:
+    if Type == 'Raw':
         print('-'*25+'Plot of ' + stock + ' original Price PACF has been stored'+'-'*25)
-    elif Type == 1:
-        print('-'*25+'Plot of ' + stock+ ' PACF has been stored'+'-'*25)
+    elif Type == 'Diff':
+        print('-'*25+'Plot of ' + stock+ ' first diff PACF has been stored'+'-'*25)
 
 
 
