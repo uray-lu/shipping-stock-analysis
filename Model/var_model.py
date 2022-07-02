@@ -102,7 +102,7 @@ class ModelConstruct():
                 
             plt.savefig('Plot/Forecast/' + path + '/'+ self.stockType +' ' + item[:7] + ' Forecast.png')
             
-        print('Model Forecast has been Done !!')  
+        print('Model Forecast of ' + self.stockType+ ' has been Done !!')  
             
             
             
