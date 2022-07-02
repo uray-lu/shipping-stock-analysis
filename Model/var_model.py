@@ -31,6 +31,10 @@ class ModelConstruct():
             
             self.stock_lists = ['2609.TW Diff', '2603.TW Diff', '2615.TW Diff', '5608.TW Diff', '2605.TW Diff','2606.TW Diff', '2637.TW Diff' ]
         
+        
+        self.model = VAR(self.data[self.stock_lists])
+        
+        
     def GridsearchforP(self):
         
         
@@ -39,7 +43,7 @@ class ModelConstruct():
                     
         aic=[]
         for i in [1,2,3,4,5,6,7,8,9,10]:
-            self.model = VAR(self.data[self.stock_lists])
+            
             results = self.model.fit(i)
             print('Order =', i)
             print('AIC: ', results.aic)
