@@ -68,7 +68,7 @@ Ljung_box_test(stocks_diff)
 
 
 
-# Model Construction
+# Data split
 
 test_obs = int(len(stocks_diff)*0.2)
 train_data = stocks_diff[:-test_obs]
