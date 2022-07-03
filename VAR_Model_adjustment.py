@@ -80,6 +80,9 @@ bulk_model = model_testing(train_data, 'bulk')
 all_model = model_testing(train_data, 'all')
 
 
+
+    
+
     
 
 try:
@@ -92,6 +95,6 @@ try:
     print('Test model was saved.')
 
 except:
-    print('Test model was not saved!!')
+    print('Test model was not saved.')
     print('You should add --save in the end of your parsing arguments to save the test model.')
             
