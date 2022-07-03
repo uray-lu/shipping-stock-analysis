@@ -97,4 +97,4 @@ try:
 except:
     print('Test model was not saved.')
     print('You should add --save in the end of your parsing arguments to save the test model.')
-            
+    print('test')
