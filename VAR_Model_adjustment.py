@@ -13,7 +13,7 @@ from Model.var_model import ModelConstruct
 
 
 
-
+#read data
 
 stocks = pd.read_csv('Data/Close_price_data.csv')
 
@@ -36,7 +36,7 @@ test_data = stocks_diff[-test_obs:]
 argv = sys.argv[1:]
 
 try:
-    options, args = getopt.getopt(argv, 'c:b:a:',['container=', 'bulk=', 'all='])
+    options, args = getopt.getopt(argv, 'c:b:a:s:',['container=', 'bulk=', 'all=', 'save'])
 except getopt.GetoptError:
     print('Worng option were provided')
     
@@ -75,9 +75,23 @@ def model_testing(data, StockType):
 
 
 
-model_testing(train_data, 'container')
-model_testing(train_data, 'bulk')
-model_testing(train_data, 'all')
+container_model = model_testing(train_data, 'container')
+bulk_model = model_testing(train_data, 'bulk')
+all_model = model_testing(train_data, 'all')
 
 
+    
 
+try:
+    if argv[6] == '--save':
+            
+        container_model.save('Model/test_result/container_model_test_result.pickle')
+        bulk_model.save('Model/test_result/bulk_model_test_result.pickle')
+        all_model.save('Model/test_result/all_model_test_result.pickle')
+        
+    print('Test model was saved.')
+
+except:
+    print('Test model was not saved!!')
+    print('You should add --save in the end of your parsing arguments to save the test model.')
+            
