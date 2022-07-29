@@ -32,7 +32,7 @@ class ModelConstruct():
             self.stock_lists = ['2609.TW Diff', '2603.TW Diff', '2615.TW Diff', '5608.TW Diff', '2605.TW Diff','2606.TW Diff', '2637.TW Diff' ]
         
         
-        self.model = VAR(self.data[self.stock_lists])
+        self.model = VAR(self.data[self.stock_lists])        
         
         
     def GridsearchforP(self):
