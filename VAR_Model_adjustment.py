@@ -10,6 +10,7 @@ import sys
 import getopt
 import pandas as pd
 from Model.var_model import ModelConstruct
+from colorama import Back
 
 
 
@@ -92,9 +93,9 @@ try:
         bulk_model.save('Model/test_result/bulk_model_test_result.pickle')
         all_model.save('Model/test_result/all_model_test_result.pickle')
         
-    print('Test model was saved.')
+    print(Back.GREEN + 'Test model was saved.')
 
 except:
-    print('Test model was not saved.')
-    print('You should add --save in the end of your parsing arguments to save the test model.')
+    print(Back.RED + 'Test model was not saved.')
+    print(Back.RED + 'You should add --save in the end of your parsing arguments to save the test model.')
     
