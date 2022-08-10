@@ -14,7 +14,9 @@ from statsmodels.graphics.tsaplots import plot_acf
 from statsmodels.graphics.tsaplots import plot_pacf
 from arch.unitroot import ADF
 from statsmodels.stats.diagnostic import acorr_ljungbox
+from colorama import Back, init
 
+init(autoreset = True)
 
 
 ## Plot data        
@@ -33,9 +35,9 @@ def MakePlot(data, stock, Type):
     plt.savefig('Plot/Price/'  + path + '/'+stock+'.png')
     
     if Type == 'Raw':
-        print('-'*25+'Plot of ' + stock + ' original Price has been stored'+'-'*25)
+        print('Plot of ' + stock + ' original Price stored' + '·'*20 + Back.GREEN +'Done')
     elif Type =='Diff':
-        print('-'*25+'Plot of ' + stock + ' first diff has been stored'+'-'*25)
+        print('Plot of ' + stock + ' first diff stored'+ '·'*20 + Back.GREEN + 'Done')
     
 
 ##ACf & PACF
@@ -51,9 +53,9 @@ def ACF(data, stock, Type):
     plt.savefig('Plot/ACF&PACF/' + path + '/'+stock+'_ACF.png')
     
     if Type == 'Raw':
-        print('-'*25+'Plot of ' + stock + ' original Price ACF has been stored'+'-'*25)
+        print('Plot of ' + stock + ' original Price ACF stored' + '·'*20 + Back.GREEN + 'Done')
     elif Type == 'Diff':
-        print('-'*25+'Plot of ' + stock+ ' first diff ACF has been stored'+'-'*25)
+        print('Plot of ' + stock+ ' first diff ACF has been stored' + '·'*20 + Back.GREEN + 'Done')
     
     
     
@@ -69,9 +71,9 @@ def PACF(data, stock, Type):
     plt.savefig('Plot/ACF&PACF/' + path + '/'+stock+'_PACF.png')
 
     if Type == 'Raw':
-        print('-'*25+'Plot of ' + stock + ' original Price PACF has been stored'+'-'*25)
+        print('Plot of ' + stock + ' original Price PACF has been stored' + '·'*20 + Back.GREEN + 'Done')
     elif Type == 'Diff':
-        print('-'*25+'Plot of ' + stock+ ' first diff PACF has been stored'+'-'*25)
+        print('Plot of ' + stock+ ' first diff PACF has been stored' + '·'*20 + Back.GREEN + 'Done')
 
 
 
@@ -94,7 +96,7 @@ def ADF_test(data):
         
     df = pd.DataFrame(output)
     
-    print('-'*15+'Augmented Dickey-Fuller test has be done' +'-'*15)
+    print('Augmented Dickey-Fuller test has be done' + '·'*20 + Back.Green + 'Done')
     print(df)
 
 # Ljung-box test
@@ -112,5 +114,5 @@ def Ljung_box_test(data):
         
     df = pd.DataFrame(output)
     
-    print('-'*25+'  Ljung-box test has be done'+'-'*25)
+    print('Ljung-box test has be done' + '·'*20 + Back.GREEN + 'Done')
     print(df)  

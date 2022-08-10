@@ -86,9 +86,9 @@ all_model = model_testing(train_data, 'all')
 
 init(autoreset = True)
 
-print('Container Stocks Model Adjusted Result has been done' +'·'*20 + f"{Back.GREEN}Train by Order :"+ argv[1])
-print('Bulk Stocks Model Adjusted Result has been done' +'·'*20 + Back.GREEN + 'Train by Order :'+ argv[3])
-print('All Stocks Model Adjusted Result has been done' +'·'*20 + Back.GREEN + 'Train by Order :'+ argv[5])
+print('Container Stocks Model Adjusted Result has been done ' +'·'*20 + Back.GREEN +"Train by Order : "+ argv[1])
+print('Bulk Stocks Model Adjusted Result has been done ' +'·'*20 + Back.GREEN + 'Train by Order : '+ argv[3])
+print('All Stocks Model Adjusted Result has been done ' +'·'*20 + Back.GREEN + 'Train by Order : '+ argv[5])
 
 
     
