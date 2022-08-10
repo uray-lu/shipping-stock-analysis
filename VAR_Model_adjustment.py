@@ -10,7 +10,7 @@ import sys
 import getopt
 import pandas as pd
 from Model.var_model import ModelConstruct
-from colorama import Back
+from colorama import Back, init
 
 
 
@@ -34,10 +34,12 @@ test_data = stocks_diff[-test_obs:]
 
 
 
+
+
 argv = sys.argv[1:]
 
 try:
-    options, args = getopt.getopt(argv, 'c:b:a:s:',['container=', 'bulk=', 'all=', 'save'])
+    options, args = getopt.getopt(argv, 'c:b:a:',['container=', 'bulk=', 'all='])
 except getopt.GetoptError:
     print('Worng option were provided')
     
@@ -47,28 +49,28 @@ except getopt.GetoptError:
 def model_testing(data, StockType):
     
     
-    testing_mdoel = ModelConstruct(data, StockType)
+    testing_model = ModelConstruct(data, StockType)
     
     for opt, arg in options:
         
         if opt in '--container':
                 
             test_order = int(arg)
-            testing_result = testing_mdoel.Model(test_order),
+            testing_result = testing_model.Model(test_order),
                
             
             
         elif opt in '--bulk':
                     
             test_order = int(arg)
-            testing_result = testing_mdoel.Model(test_order),
+            testing_result = testing_model.Model(test_order),
                   
             
             
         elif opt in '--all':
                         
             test_order = int(arg)
-            testing_result = testing_mdoel.Model(test_order) 
+            testing_result = testing_model.Model(test_order) 
             
     
     
@@ -82,20 +84,11 @@ all_model = model_testing(train_data, 'all')
 
 
 
-    
+init(autoreset = True)
 
-    
+print('Container Stocks Model Adjusted Result has been done' +'·'*20 + f"{Back.GREEN}Train by Order :"+ argv[1])
+print('Bulk Stocks Model Adjusted Result has been done' +'·'*20 + Back.GREEN + 'Train by Order :'+ argv[3])
+print('All Stocks Model Adjusted Result has been done' +'·'*20 + Back.GREEN + 'Train by Order :'+ argv[5])
 
-try:
-    if argv[6] == '--save':
-            
-        container_model.save('Model/test_result/container_model_test_result.pickle')
-        bulk_model.save('Model/test_result/bulk_model_test_result.pickle')
-        all_model.save('Model/test_result/all_model_test_result.pickle')
-        
-    print(Back.GREEN + 'Test model was saved.')
 
-except:
-    print(Back.RED + 'Test model was not saved.')
-    print(Back.RED + 'You should add --save in the end of your parsing arguments to save the test model.')
     
