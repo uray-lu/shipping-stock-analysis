@@ -64,7 +64,7 @@ class ModelConstruct():
         result = model.fit(order)
         print(result.summary())
         
-        return result
+        return model
     
     def Forecast(self, Order, Origidata,Testdata):
         lagged_Values = self.data[self.stock_lists].values[-Order:]
