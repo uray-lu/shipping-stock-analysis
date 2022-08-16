@@ -35,9 +35,9 @@ def MakePlot(data, stock, Type):
     plt.savefig('Plot/Price/'  + path + '/'+stock+'.png')
     
     if Type == 'Raw':
-        print('Plot of ' + stock + ' original Price stored' + '·'*20 + Back.GREEN +'Done')
+        print(f"{'Plot of': <10}{stock: <10}{'original Price stored': ^10}{'·'*20: >10}{Back.GREEN}{'Done': ^10}")
     elif Type =='Diff':
-        print('Plot of ' + stock + ' first diff stored'+ '·'*20 + Back.GREEN + 'Done')
+        print(f"{'Plot of': <10}{stock: <10}{'first diff stored': ^10}{'·'*20: >10}{Back.GREEN}{'Done': ^10}")
     
 
 ##ACf & PACF
@@ -53,13 +53,13 @@ def ACF(data, stock, Type):
     plt.savefig('Plot/ACF&PACF/' + path + '/'+stock+'_ACF.png')
     
     if Type == 'Raw':
-        print('Plot of ' + stock + ' original Price ACF stored' + '·'*20 + Back.GREEN + 'Done')
+        print(f"{'Plot of': <10}{stock: <10}{'original Price ACF stored': ^10}{'·'*20: >10}{Back.GREEN}{'Done': ^10}")
     elif Type == 'Diff':
-        print('Plot of ' + stock+ ' first diff ACF has been stored' + '·'*20 + Back.GREEN + 'Done')
+        print(f"{'Plot of': <10}{stock: <10}{'first diff ACF stored': ^10}{'·'*20: >10}{Back.GREEN}{'Done': ^10}")
     
     
     
-    
+
 def PACF(data, stock, Type):
     
     if Type == 'Raw':
@@ -71,9 +71,9 @@ def PACF(data, stock, Type):
     plt.savefig('Plot/ACF&PACF/' + path + '/'+stock+'_PACF.png')
 
     if Type == 'Raw':
-        print('Plot of ' + stock + ' original Price PACF has been stored' + '·'*20 + Back.GREEN + 'Done')
+        print(f"{'Plot of': <10}{stock: <10}{'original Price PACF stored': ^10}{'·'*20: >10}{Back.GREEN}{'Done': ^10}")
     elif Type == 'Diff':
-        print('Plot of ' + stock+ ' first diff PACF has been stored' + '·'*20 + Back.GREEN + 'Done')
+        print(f"{'Plot of': <10}{stock: <10}{'first diff PACF stored': ^10}{'·'*20: >10}{Back.GREEN}{'Done': ^10}")
 
 
 
@@ -96,7 +96,7 @@ def ADF_test(data):
         
     df = pd.DataFrame(output)
     
-    print('Augmented Dickey-Fuller test has be done' + '·'*20 + Back.Green + 'Done')
+    print(f"{'Augmented Dickey-Fuller test': <10}{'·'*20: ^10}{Back.GREEN}{'Done': ^10}")
     print(df)
 
 # Ljung-box test
@@ -114,5 +114,15 @@ def Ljung_box_test(data):
         
     df = pd.DataFrame(output)
     
-    print('Ljung-box test has be done' + '·'*20 + Back.GREEN + 'Done')
+    print(f"{'Ljung-box test': <10}{'·'*20: ^10}{Back.GREEN}{'Done': ^10}")
     print(df)  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
