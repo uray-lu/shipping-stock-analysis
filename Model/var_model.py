@@ -40,7 +40,7 @@ class ModelConstruct():
         
         
                     
-        print('-'*25 + '[%10s]'%'Grid Search of Order P for' + ' ' + self.stockType +' '+'Stocks Model'+ '-'*25)
+        print('-'*25 + '[%10s]'%'Grid Search of Order P' + ' ' + self.stockType +' '+'Stocks Model'+ '-'*25)
                     
         aic=[]
         for i in [1,2,3,4,5,6,7,8,9,10]:
@@ -57,9 +57,19 @@ class ModelConstruct():
         plt.title(self.stockType + ' ' + 'AIC')
         plt.savefig('Plot/AIC_of_model_order/' + self.stockType + ' AIC.png')
         
+        
+        
         aic = pd.DataFrame(aic, index = ('order ='+ str(i) for i in range(1,11)))
+        aic.columns =[ 'AIC']
+        aic.index.name ='Order'
+        
         aic.to_csv('Model/Model record/' + self.stockType + ' model_order_AIC.csv', header=False)
-    
+        
+        print(f"{'The minum of AIC is': <10}{aic['AIC'].min()}{'with': ^10}{Back.BLUE}{aic['AIC'].idxmin(): ^10}")
+        
+        
+        
+        
     def Model(self, order):
         model = self.model
         result = model.fit(order)
