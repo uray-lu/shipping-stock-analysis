@@ -63,7 +63,7 @@ class ModelConstruct():
         aic.columns =[ 'AIC']
         aic.index.name ='Order'
         
-        aic.to_csv('Model/Model record/' + self.stockType + ' model_order_AIC.csv', header=False)
+        aic.to_csv('Model/Model_adjustment_record/' + self.stockType + ' model_order_AIC.csv', header=False)
         
         print(f"{'The minum of AIC is': <10}{aic['AIC'].min()}{'with': ^10}{Back.BLUE}{aic['AIC'].idxmin(): ^10}")
         
