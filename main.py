@@ -81,17 +81,17 @@ test_data = stocks_diff[-test_obs:]
 
 # Model construction
 
-#container = ModelConstruct(train_data, 'container')
-#bulk = ModelConstruct(train_data, 'bulk')
-#all_stocks = ModelConstruct(train_data, 'all')
+container = ModelConstruct(train_data, 'container')
+bulk = ModelConstruct(train_data, 'bulk')
+all_stocks = ModelConstruct(train_data, 'all')
 
 
 
 #Search for the order for VAR model
 
-#container.GridsearchforP()
-#bulk.GridsearchforP()
-#all_stocks.GridsearchforP()
+container.GridsearchforP()
+bulk.GridsearchforP()
+all_stocks.GridsearchforP()
 
 
 
