@@ -119,8 +119,8 @@ class ModelConstruct():
                 
             plt.savefig('Plot/Forecast/' + path + '/'+ self.stockType +' ' + item[:7] + ' Forecast.png')
             
-        print(f"{'Model Forecast of ': <10}{self.stockType: ^10}{'stocks': ^10}{'·'*20: ^10}{Back.GREEN}{'Done': ^10}")  
+        print(f"{'Model Forecast of ': <10}{self.stockType: ^10}{'stocks': ^10}{'·'*20: ^10}{Back.GREEN}{'Done': ^10}{Back.CYAN}{'Check the forecast plot at /Plot/Forecast'}")  
             
-            
+
             
             
