@@ -8,13 +8,14 @@ Created on Sat Jun  4 15:28:31 2022
 
 
 #Require packages 
-
 import pandas as pd
 from src.stat_test import MakePlot, ACF, PACF, ADF_test, Ljung_box_test 
 from Model.var_model import ModelConstruct
+import sys
+import getopt
+from colorama import Back, init
 
-
-
+init(autoreset = True)
 
 
 # Get Close Price
@@ -26,10 +27,6 @@ stock_lists = ['2609.TW', '2603.TW', '2615.TW', '5608.TW', '2605.TW','2606.TW', 
 
 stocks_diff = stocks.diff().dropna()
 stocks_diff = stocks_diff.rename(columns = {'2609.TW':'2609.TW Diff', '2603.TW':'2603.TW Diff', '2615.TW':'2615.TW Diff', '5608.TW':'5608.TW Diff', '2605.TW':'2605.TW Diff','2606.TW':'2606.TW Diff', '2637.TW':'2637.TW Diff' })
-
-# first order difference as first difference
-
-
 
 
 # Plot Original Price
@@ -97,7 +94,36 @@ all_stocks.GridsearchforP()
 
 #Forecast
 
-#container.Forecast(4,stocks, test_data)
-#bulk.Forecast(1, stocks, test_data)
-#all_stocks.Forecast(1, stocks,  test_data)
+
+argv = sys.argv[1:]
+
+try:
+    options, args = getopt.getopt(argv, 'c:b:a:',['container=', 'bulk=', 'all='])
+except getopt.GetoptError:
+    print(Back.RED + 'Worng option were provided!')
+    print(Back.RED + 'Please enter the order of model after model type')
+    print(Back.BLUE + 'For example : --container 3')
+    
+
+    
+for opt, arg in options:
+        
+        if opt in '--container':
+            
+            test_order = int(arg)
+            container.Forecast(test_order, stocks, test_data)
+            
+        elif opt in '--bulk':
+
+            test_order = int(arg)
+            bulk.Forecast(test_order, stocks, test_data)
+        
+        elif opt in '--all':
+                        
+            test_order = int(arg)
+            all_stocks.Forecast(test_order, stocks,  test_data)
+
+
+
+
 
