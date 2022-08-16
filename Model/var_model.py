@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 from statsmodels.tsa.api import VAR
 from matplotlib import pyplot as plt
+from colorama import Back
 
 
 class ModelConstruct():
@@ -39,7 +40,7 @@ class ModelConstruct():
         
         
                     
-        print('-'*25 + 'Grid Search of Order P for' + ' ' + self.stockType +' '+'Stocks Model'+ '-'*25)
+        print('-'*25 + '[%10s]'%'Grid Search of Order P for' + ' ' + self.stockType +' '+'Stocks Model'+ '-'*25)
                     
         aic=[]
         for i in [1,2,3,4,5,6,7,8,9,10]:
@@ -106,7 +107,7 @@ class ModelConstruct():
                 
             plt.savefig('Plot/Forecast/' + path + '/'+ self.stockType +' ' + item[:7] + ' Forecast.png')
             
-        print('Model Forecast of ' + self.stockType+ ' has been Done !!')  
+        print(f"{'Model Forecast of': <10}{self.stockType}{'·'*20: ^10}{Back.GREEN}{'Done': ^10}")  
             
             
             
