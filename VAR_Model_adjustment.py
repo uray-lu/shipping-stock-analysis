@@ -45,7 +45,7 @@ except getopt.GetoptError:
     print(Back.RED + 'Please enter the order of model after model type')
     print(Back.BLUE + 'For example : --container 3')
     
-    sys.exit(2)
+    
 
 
 def model_testing(data):
