@@ -12,7 +12,7 @@ import pandas as pd
 from Model.var_model import ModelConstruct
 from colorama import Back, init
 
-
+init(autoreset = True)
 
 #read data
 
@@ -41,54 +41,56 @@ argv = sys.argv[1:]
 try:
     options, args = getopt.getopt(argv, 'c:b:a:',['container=', 'bulk=', 'all='])
 except getopt.GetoptError:
-    print('Worng option were provided')
+    print(Back.RED + 'Worng option were provided!')
+    print(Back.RED + 'Please enter the order of model after model type')
+    print(Back.BLUE + 'For example : --container 3')
     
     sys.exit(2)
 
 
-def model_testing(data, StockType):
+def model_testing(data):
     
-    
-    testing_model = ModelConstruct(data, StockType)
     
     for opt, arg in options:
         
         if opt in '--container':
-                
-            test_order = int(arg)
-            testing_result = testing_model.Model(test_order),
-               
             
+            testing_model = ModelConstruct(data, 'container')
+            test_order = int(arg)
+            testing_result = testing_model.Model(test_order)
+            
+            print(f"{'Container Stocks Model Adjusted Result has been done': <10}{'·'*20: ^10}{Back.GREEN}{'Train by Order:': ^10}{test_order}")
             
         elif opt in '--bulk':
                     
+            testing_model = ModelConstruct(data, 'bulk')
             test_order = int(arg)
-            testing_result = testing_model.Model(test_order),
-                  
+            testing_result = testing_model.Model(test_order)
             
-            
+            print(f"{'Bulk Stocks Model Adjusted Result has been done': <10}{'·'*20: ^10}{Back.GREEN}{'Train by Order:': ^10}{test_order}")
+
         elif opt in '--all':
                         
+            testing_model = ModelConstruct(data, 'all')
             test_order = int(arg)
-            testing_result = testing_model.Model(test_order) 
+            testing_result = testing_model.Model(test_order)
             
-    
+            print(f"{'All Stocks Model Adjusted Result has been done': <10}{'·'*20: ^10}{Back.GREEN}{'Train by Order:': ^10}{test_order}")
+            
     
     return testing_result
 
 
 
-container_model = model_testing(train_data, 'container')
-bulk_model = model_testing(train_data, 'bulk')
-all_model = model_testing(train_data, 'all')
+container_model = model_testing(train_data)
+bulk_model = model_testing(train_data)
+all_model = model_testing(train_data)
 
 
 
-init(autoreset = True)
 
-print('Container Stocks Model Adjusted Result has been done ' +'·'*20 + Back.GREEN +"Train by Order : "+ argv[1])
-print('Bulk Stocks Model Adjusted Result has been done ' +'·'*20 + Back.GREEN + 'Train by Order : '+ argv[3])
-print('All Stocks Model Adjusted Result has been done ' +'·'*20 + Back.GREEN + 'Train by Order : '+ argv[5])
+
+
 
 
     
