@@ -39,3 +39,4 @@ class GetStockData():
 stock_lists = ['2609.TW', '2603.TW', '2615.TW', '5608.TW', '2605.TW','2606.TW', '2637.TW' ]
 stocks_data = GetStockData('2021-01-01', '2022-01-01', stock_lists)
 stocks_data.StoreData()
+
