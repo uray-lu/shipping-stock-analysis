@@ -86,17 +86,19 @@ class ModelConstruct():
         df_forecast = pd.DataFrame(data=pred, 
                                    index=idx,
                                    columns= (self.stock_lists))
+       
         
-        
-        
+
         for item in self.stock_lists:
             
             
-            df_forecast[item[:7] + 'Forecast'] = np.r_[Origidata[item[:7]][-len(Testdata)-1], df_forecast[item]].cumsum()[1:]
+            df_forecast[item[:7] + 'Forecast'] = Origidata[item[:7]].iloc[-(len(Testdata)+1)] + df_forecast[item].cumsum()
          
-        
+            
         
             test_original = Origidata[-len(Testdata):]
+            
+            
             
             plt.figure()
             test_original[item[:7]].plot(figsize=(12,5),legend=True)
@@ -117,7 +119,7 @@ class ModelConstruct():
                 
             plt.savefig('Plot/Forecast/' + path + '/'+ self.stockType +' ' + item[:7] + ' Forecast.png')
             
-        print(f"{'Model Forecast of': <10}{self.stockType}{'·'*20: ^10}{Back.GREEN}{'Done': ^10}")  
+        print(f"{'Model Forecast of ': <10}{self.stockType: ^10}{'stocks': ^10}{'·'*20: ^10}{Back.GREEN}{'Done': ^10}{'·'*20: ^10}")  
             
             
             
