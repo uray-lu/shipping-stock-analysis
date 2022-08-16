@@ -4,3 +4,6 @@ statsmodels
 matplotlib
 arch
 pandas-datareader
+sys
+getopt
+colorama
