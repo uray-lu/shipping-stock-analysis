@@ -45,7 +45,8 @@
 >>> python VAR_Model_adjustment.py --container `order` --bulk `order` --all `order`
 ```
 _input any numbers to replace `order` in the command line._
--You can randomly shift the args differently like `--all order --container order --bulk order`-
+_You can randomly shift the args differently like  ..
+`--all order --container order --bulk order`_
 
 
 
@@ -55,7 +56,8 @@ _input any numbers to replace `order` in the command line._
 >>> python main.py --container `order` --bulk `order` --all `order`
 ```
 _input any numbers to replace `order` in the command line._
--You can randomly shift the args differently like `--all order --container order --bulk order`-
+_You can randomly shift the args differently like  ..
+`--all order --container order --bulk order`_
 
 
 
