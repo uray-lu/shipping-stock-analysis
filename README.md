@@ -1,7 +1,7 @@
 # Shipping-Stock-Analysis
 
 ## This is NCCU Department of Economics Time series class final project
-### This project use the Vector Auto-Regression Model to predict the Shipping Stocks form TW through 2021 to 2022,  ..
+    This project use the Vector Auto-Regression Model to predict the Shipping Stocks form TW through 2021 to 2022,  ..
     we use the yahoo API to get the raw close data of seven different stocks, and use the `arch` package to do the  ..
     basic time series data analysis, including: ACF, PACF, Augmented Dickey-Fuller test, Ljung-box test .  ..
     After the statistic test, we use the `VAR` package from `statsmodels.tsa.api` to construct the different models, ..
@@ -45,7 +45,7 @@
 >>> python VAR_Model_adjustment.py --container `order` --bulk `order` --all `order`
 ```
 _input any numbers to replace `order` in the command line._
-_You can randomly shift the args differently like_
+_You can randomly shift the args differently like_  
 _`--all order --container order --bulk order`_
 
 
@@ -56,7 +56,7 @@ _`--all order --container order --bulk order`_
 >>> python main.py --container `order` --bulk `order` --all `order`
 ```
 _input any numbers to replace `order` in the command line._
-_You can randomly shift the args differently like_
+_You can randomly shift the args differently like_  
 _`--all order --container order --bulk order`_
 
 
