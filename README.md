@@ -9,40 +9,41 @@
     model to make the forecast plot.   
 
 
-### After clone the whole repo:
 
+### After clone the whole repo to local:
+####_All the analysis can be done by your terminal_
 
 1. Open your terminal and change the directory to this project
 
 ```bash
->>> cd ./Shipping-Stock-Analysis
+cd ./Shipping-Stock-Analysis
 ```
 
 2. Install all the packages required in your terminal
 
 
-```
->>> pip/pip3 install -r requirements.txt
+```bash
+pip/pip3 install -r requirements.txt
 ```
 
 
 ### After all the package were installed:
 
-* Run #main.py in your terminal to do the basic time series analysis and construct the training model to do the grid search of optimal model order 
+* Run `main.py` in your terminal to do the basic time series analysis and construct the training model to do the grid search of optimal model order 
 
 
-```
->>> python main.py 
+```bash
+python main.py 
 ``` 
 
 
 
 
 
-* After deciding the order of model, you can Modify the Model through #VAR_Model_adjustment.py, Use the command line below:
+* After deciding the order of model, you can Modify the Model through `VAR_Model_adjustment.py`, Use the command line below in your terminal:
 
-```
->>> python VAR_Model_adjustment.py --container `order` --bulk `order` --all `order`
+```bash
+python VAR_Model_adjustment.py --container `order` --bulk `order` --all `order`
 ```
 _input any numbers to replace `order` in the command line._
 _You can randomly shift the args differently like_  
@@ -50,10 +51,10 @@ _`--all order --container order --bulk order`_
 
 
 
-* After the adjustment of models was done. Run #main.py with the model order arguments to construct the forecast model and finish the forecast
+* After the adjustment of models was done. Run `main.py` with the model order arguments to construct the forecast model and finish the forecast
 
-```
->>> python main.py --container `order` --bulk `order` --all `order`
+```bash
+python main.py --container `order` --bulk `order` --all `order`
 ```
 _input any numbers to replace `order` in the command line._
 _You can randomly shift the args differently like_  
